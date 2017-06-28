@@ -3,13 +3,14 @@ OSVersion: stable
 MirrorURL: http://ftp.us.debian.org/debian/
 
 %runscript
-#!/bin/bash
 source /.singularity.d/environment
 cd /tmp
-if [ $# -le 1 ]; then
-  mdrun_mpi_d -s /data/ion_channel.tpr -maxh 0.50 -resethway -noconfout -nsteps 500 -g logfile -v
+if [[ $# -le 1 ]]; then
+  echo "Single node run on 4 cores, should take ~4 mins real, ~14mins user..."
+  time mpirun -n 4 mdrun_mpi.openmpi -s /data/ion_channel.tpr -maxh 0.50 -noconfout -nsteps 500 -g logfile -v
 else
-  mpirun -H"$1","$2" mdrun_mpi_d -s /data/ion_channel.tpr -maxh 0.50 -resethway -noconfout -nsteps 500 -g logfile -v
+  echo "Multi node run on 2x4 cores should take ~2.5 mins real, ~7mins user..."
+  mpirun -H "$1,$2" -np 4 mdrun_mpi_d -s /data/ion_channel.tpr -maxh 0.50 -resethway -noconfout -nsteps 500 -g logfile -v
 fi
 
 %environment
@@ -28,7 +29,7 @@ export MOAB_PROCCOUNT=${MOAB_PROCCOUNT:=1}
 echo "Hello from inside the container"
 apt-get update
 apt-get -y --force-yes install vim gromacs gromacs-openmpi ssh
-mv /usr/bin/ssh /usr/bin/ssh-orig
+mv /usr/bin/ssh /usr/bin/ssh_orig
 mkdir -p /data
 
 %files
