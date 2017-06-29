@@ -12,7 +12,7 @@ export SINGULARITYENV_SINGULARITY_IMAGE
 You will need to bind mount `/etc/ssh` in `/etc/singularity/singularity.conf`
 
 ```
-bind path=/etc/ssh
+bind path = /etc/ssh
 ```
 
 Pull this image onto the login node of a multi host HPC system and run it in single node mode
@@ -24,7 +24,7 @@ singularity pull shub://katakombi/multinode_sshwrapper
 In order to submit it dual node the nodes `n0720` and `n0726` need to be accessible via SSH keys. Do something like this:
 
 ```
-singularity exec $PWD/katakombi_multinode_sshwrapper n0720 n0726
+singularity exec $PWD/katakombi-multinode_sshwrapper-master.img /.singularity.d/runscript n0726,n0720
 ```
 
 The container needs to be accessible from each node and each node needs to have the same singularity installation / configuration as the host you are invoking the multi node MPI job on
