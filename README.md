@@ -21,10 +21,10 @@ singularity pull shub://katakombi/multinode_sshwrapper
 ./katakombi_multinode_sshwrapper
 ```
 
-In order to submit it dual node the nodes need to be accessible via SSH keys. Do something like this:
+In order to submit it dual node the nodes `n0720` and `n0726` need to be accessible via SSH keys. Do something like this:
 
 ```
-singularity exec katakombi_multinode_sshwrapper n0720 n0726
+singularity exec $PWD/katakombi_multinode_sshwrapper n0720 n0726
 ```
 
 The container needs to be accessible from each node and each node needs to have the same singularity installation / configuration as the host you are invoking the multi node MPI job on
