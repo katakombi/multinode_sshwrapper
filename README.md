@@ -13,9 +13,8 @@ Both tasks should run about the same time.
 
 ## Limitations
 
-* I have tested this using QDR InfiniBand HCA (Intel TrueScale) on our bwForCluster JUSTUS. I did not try to perform this via standard ethernet although it should be doable. I guess some parameters or environment variables would be needed to try this out.
-* If you have other hardware you might need to install additional driver packages inside the container.
-The container ignores your RM and/or queueing system. Further changes would be needed to integrate that well into whatever it is you are using.
+* I have tested this using QDR InfiniBand HCA (Intel TrueScale) on our bwForCluster JUSTUS. I did not try to perform this via standard ethernet although it should be doable. I guess some parameters or environment variables would be needed to try this out. If you have other hardware you might need to install additional driver packages inside the container.
+* The container ignores your RM and/or queueing system. Further changes would be needed to integrate that well into whatever it is you are using.
 
 ## Prerequisites
 
