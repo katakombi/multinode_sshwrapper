@@ -10,7 +10,7 @@ if [[ $# -le 1 ]]; then
   time mpirun -n 4 mdrun_mpi.openmpi -s /data/ion_channel.tpr -maxh 0.50 -noconfout -nsteps 500 -g logfile -v
 else
   echo "Multi node run on 2 nodes, 2 cores should take ~40 secs real, ~2mins30 user..."
-  time mpirun --oversubscribe -H "$1" -n 4  mdrun_mpi.openmpi -s /data/ion_channel.tpr -maxh 0.50 -noconfout -nsteps 500 -g logfile -v
+  time mpirun --oversubscribe -H "$1" -np 4  mdrun_mpi.openmpi -s /data/ion_channel.tpr -maxh 0.50 -noconfout -nsteps 500 -g logfile -v
 fi
 
 %environment
