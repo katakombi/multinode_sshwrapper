@@ -54,7 +54,7 @@ fi
 #echo 'Invoking SSH with params=['$_PARAM'] host=['$_HOST'] cmd=['$_COMMAND']'
 echo "====="
 
-echo /usr/bin/ssh_orig $_PARAM $_HOST /usr/bin/singularity exec $SINGULARITY_IMAGE $_COMMAND
-/usr/bin/ssh_orig $_PARAM $_HOST /usr/bin/singularity exec $SINGULARITY_IMAGE $_COMMAND
+echo /usr/bin/ssh_orig $_PARAM $_HOST /usr/bin/singularity exec -B /etc/ssh $SINGULARITY_IMAGE $_COMMAND
+/usr/bin/ssh_orig $_PARAM $_HOST /usr/bin/singularity exec -B /etc/ssh $SINGULARITY_IMAGE $_COMMAND
 
 exit $?
