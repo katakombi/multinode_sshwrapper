@@ -32,7 +32,7 @@ Both tasks should run about the same time.
 Pull this image onto the login node of a multi host HPC system and run it in single node mode
 ```
 singularity pull shub://katakombi/multinode_sshwrapper
-./katakombi-multinode_sshwrapper_master.img
+./katakombi-multinode_sshwrapper-master.img
 ```
 Use `top` to ensure that there are four local cores being occupied.
 
