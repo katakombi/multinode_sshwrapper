@@ -27,12 +27,6 @@ SINGULARITYENV_SINGULARITY_IMAGE="$SINGULARITY_IMAGE"
 export SINGULARITYENV_SINGULARITY_IMAGE
 ```
 
-* You will need to bind mount `/etc/ssh` in `/etc/singularity/singularity.conf`
-
-```
-bind path = /etc/ssh
-```
-
 * In order to properly submit a multi node job the nodes must be accessible via SSH keys (password-less)
 
 * The container needs to reside on a shared location which is accessible from each node.
