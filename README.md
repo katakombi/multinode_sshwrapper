@@ -9,7 +9,7 @@ To demonstrate how it works you will run a short gromacs job using
 * 4 local MPI threads on localhost
 * 2x2 MPI threads on two host specified by you
 
-Both tasks should run about the same time.
+Both tasks should take approximately the same time.
 
 ## Limitations
 
