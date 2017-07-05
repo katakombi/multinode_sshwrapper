@@ -47,4 +47,6 @@ During the short run, use `top` on the compute nodes to ensure that on each of t
 
 ## Credits
 
-Credit to whom it is due: https://github.com/ambu50/docker-ib-mpi
+Credit to whom it is due: 
+https://github.com/ambu50/docker-ib-mpi
+https://github.com/ambu50/wrapper-sq/blob/master/papers/docker_paper_IEEE.pdf
