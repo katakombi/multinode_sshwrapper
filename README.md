@@ -39,7 +39,7 @@ Use `top` to ensure that there are four local cores being occupied.
 In order to submit it multi node (here `n0720` and `n0726`, you need to use the hostnames or IPs of your nodes, respectively) execute:
 
 ```
-export SINGULARITYENV_SINGULARITY_IMAGE="$PWD/katakombi-multinode_sshwrapper_master.img"
+export SINGULARITYENV_SINGULARITY_IMAGE="$PWD/katakombi-multinode_sshwrapper-master.img"
 singularity exec "$SINGULARITYENV_SINGULARITY_IMAGE" /.singularity.d/runscript n0726,n0720
 ```
 
