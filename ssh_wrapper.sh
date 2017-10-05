@@ -43,7 +43,7 @@ done
 
 _COMMAND=`echo $_COMMAND | tr '"' "'"`
 
-# with no params start an docker container remotely with a pseudy TTY
+# with no params start an singularity container remotely with a pseudy TTY
 if [ "$_COMMAND" == "" ]; then
     _PARAM="-t $_PARAM"
     _COMMAND="/bin/bash"
@@ -51,10 +51,8 @@ else
     _COMMAND='/bin/bash -c "'$_COMMAND'"'
 fi
 
-#echo 'Invoking SSH with params=['$_PARAM'] host=['$_HOST'] cmd=['$_COMMAND']'
 echo "====="
-
-echo /usr/bin/ssh_orig $_PARAM $_HOST /usr/bin/singularity exec $SINGULARITY_IMAGE $_COMMAND
-/usr/bin/ssh_orig $_PARAM $_HOST /usr/bin/singularity exec $SINGULARITY_IMAGE $_COMMAND
+echo /usr/bin/ssh_orig $_PARAM $_HOST \$\(which singularity\) exec -B /etc/ssh $SINGULARITY_IMAGE $_COMMAND
+/usr/bin/ssh_orig $_PARAM $_HOST \$\(which singularity\) exec -B /etc/ssh $SINGULARITY_IMAGE $_COMMAND
 
 exit $?
