@@ -3,7 +3,7 @@ OSVersion: stable
 MirrorURL: http://ftp.us.debian.org/debian/
 
 %runscript
-source /.singularity.d/environment
+source /.singularity.d/env/90-environment.sh
 cd /tmp
 if [[ $# -eq 0 ]]; then
   echo "Single node run on 4 cores, should take ~40 secs real, ~2mins30 user..."
