@@ -29,4 +29,4 @@ ln -sf bash /bin/sh
 %files
 README.md /README.md
 ssh_wrapper.sh /usr/bin/ssh
-ion_channel.tpr /data
+ion_channel.tpr /data/ion_channel.tpr
