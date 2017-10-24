@@ -18,15 +18,17 @@ echo "### Setting up shell environment ..."
 echo 
 unset LANG; export LC_ALL="C"; export MKL_NUM_THREADS=1; export OMP_NUM_THREADS=1
 
+%setup
+mkdir -p /data
+
 %post
 echo "Hello from inside the container"
 apt-get update
 apt-get -y --force-yes install vim gromacs gromacs-openmpi libipathverbs1 ssh
 mv /usr/bin/ssh /usr/bin/ssh_orig
-mkdir -p /data
 ln -sf bash /bin/sh
 
 %files
 README.md /README.md
 ssh_wrapper.sh /usr/bin/ssh
-ion_channel.tpr /data/ion_channel.tpr
+ion_channel.tpr /data/
