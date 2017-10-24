@@ -19,7 +19,7 @@ echo
 unset LANG; export LC_ALL="C"; export MKL_NUM_THREADS=1; export OMP_NUM_THREADS=1
 
 %setup
-mkdir -p /data
+mkdir -p ${SINGULARITY_ROOTFS}/data
 
 %post
 echo "Hello from inside the container"
