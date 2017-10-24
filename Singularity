@@ -26,9 +26,10 @@ echo "Hello from inside the container"
 apt-get update
 apt-get -y --force-yes install vim gromacs gromacs-openmpi libipathverbs1 ssh
 mv /usr/bin/ssh /usr/bin/ssh_orig
+mv /usr/bin/ssh_wrapper.sh /usr/bin/ssh
 ln -sf bash /bin/sh
 
 %files
 README.md /README.md
-ssh_wrapper.sh /usr/bin/ssh
+ssh_wrapper.sh /usr/bin/ssh_wrapper.sh
 ion_channel.tpr /data/
